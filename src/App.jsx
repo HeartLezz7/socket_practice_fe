@@ -5,16 +5,10 @@ import socket from "./configs/socket";
 function App() {
   const [message, setMessage] = useState([]);
   const [input, setInput] = useState("");
-  const [user, setUser] = useState(["1"]);
 
   useEffect(() => {
-    socket.auth = { id: user[0] };
-    if (user.length > 1) {
-      socket.auth = { id: user[user.length - 1] };
-    }
-
+    socket.auth = { id: 1 };
     socket.connect();
-
     return () => socket.disconnect();
   }, []);
 
